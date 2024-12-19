@@ -6,8 +6,6 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 const iconColor: string = '#69006D';
 
-const router = useRouter();
-
 export default function TabLayout() {
 	return (
 		<Tabs
@@ -30,7 +28,6 @@ export default function TabLayout() {
 			}}
 			/>
 			
-
 			< Tabs.Screen name="favourites" options={{
 				title: 'Favorites',
 				tabBarIcon: ({ color, focused }) => (

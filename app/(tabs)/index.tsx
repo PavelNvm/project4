@@ -10,16 +10,6 @@ import { Link } from "expo-router";
 const categories: Category[] = [];
 
 const Index = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  useEffect(() => {
-    const getProducts = async () => {
-      const products = await getProductsasd(10);
-
-      //setProducts(products);
-    };
-    getProducts();
-  }, []);
-
   return (
     <View style={styles.container}>
       <Link href="./about" style={styles.button}>

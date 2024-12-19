@@ -1,5 +1,5 @@
 "use client"
-import { useLocalSearchParams, usePathname, Link, useRouter } from 'expo-router';
+import { useLocalSearchParams, usePathname, Link, useRouter as router } from 'expo-router';
 import TakeProductsLine from '@/app/components/TakeProductsLine'
 import CategoryList from '@/app/components/CategoryList';
 import { categories } from '@/app/data/categories';
@@ -9,8 +9,6 @@ import  {getNameOfCategoryById} from '@/app/utils/usefulFunctions'
 
 
 export default function(){
-    const router = useRouter();
-
     const { subCategory: subCategoryId } = useLocalSearchParams();
 
     let subCats = categories.find(i=>i.id===subCategoryId)?.subcats;
@@ -21,8 +19,8 @@ export default function(){
 
     return(
         <View style={{flex : 1}}>
-            <TakeProductsLine router={router} categoryId={subCategoryId as string}></TakeProductsLine>
-            <CategoryList categories={subCategories} router={router} parentLink='./'></CategoryList>
+            <TakeProductsLine categoryId={subCategoryId as string} router={router()}></TakeProductsLine>
+            <CategoryList categories={subCategories}parentLink='./' router={router()}></CategoryList>
         </View>
         )
 }
