@@ -6,8 +6,6 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 const iconColor: string = '#69006D';
 
-const router = useRouter();
-
 export default function TabLayout() {
 	return (
 		<Tabs
@@ -21,24 +19,6 @@ export default function TabLayout() {
 					<Ionicons name={focused ? 'home-sharp' : 'home-outline'} color={color} size={24} />
 				),
 			}}/>
-			<Tabs.Screen name="Category/[subCategory]/[page]" 
-			options={
-				{
-					href:null,
-				}
-			}></Tabs.Screen>
-			<Tabs.Screen name="Category/[subCategory]/[subSubCategory]/[page]" 
-			options={
-				{
-					href:null,
-				}
-			}></Tabs.Screen>
-			<Tabs.Screen name="ProductsOfCategory/[page]" 
-			options={
-				{
-					href:null,
-				}
-			}></Tabs.Screen>
 			<Tabs.Screen name="(Catalog)" options={{
 				title: "Catalog",
 				headerShown:false,
@@ -48,7 +28,6 @@ export default function TabLayout() {
 			}}
 			/>
 			
-
 			< Tabs.Screen name="favourites" options={{
 				title: 'Favorites',
 				tabBarIcon: ({ color, focused }) => (

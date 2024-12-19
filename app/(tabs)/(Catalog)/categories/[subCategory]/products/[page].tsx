@@ -2,8 +2,6 @@ import { useLocalSearchParams, usePathname, Stack, useGlobalSearchParams } from 
 import ProductList from '@/app/components/ProductList';
 import { categories } from '@/app/data/categories';
 import { products } from '@/app/data/products';
-import {ScrollView} from 'react-native';
-import { getNameOfProductById, getNameOfCategoryById } from '@/app/utils/usefulFunctions';
 
 export default function(){
 
@@ -14,11 +12,6 @@ export default function(){
     let subSubCategories = categories.filter(cat => cat.depth == 2);
 
     let titleName: string|undefined;
-
-    if(categoryId != undefined)
-    {
-        titleName = productsByCategoryId !== undefined ? getNameOfCategoryById(categoryId.toString(), subSubCategories) : "";
-    }
 
     return( 
             <ProductList products={productsByCategoryId}></ProductList>
