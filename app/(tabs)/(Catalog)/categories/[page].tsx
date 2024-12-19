@@ -6,6 +6,10 @@ import { categories } from '@/app/data/categories';
 import { Category } from '@/app/interfaces/Category';
 import { View, TouchableOpacity } from 'react-native'
 
+import  {getNameOfCategoryById} from '@/app/utils/usefulFunctions'
+
+//Depth = 1
+
 export default function(){
     const { subCategory } = useLocalSearchParams();
 
