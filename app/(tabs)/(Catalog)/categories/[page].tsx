@@ -5,32 +5,24 @@ import CategoryList from '@/app/components/CategoryList';
 import { categories } from '@/app/data/categories';
 import { Category } from '@/app/interfaces/Category';
 import { View, TouchableOpacity } from 'react-native'
-import  {getNameOfCategoryById} from '@/app/utils/usefulFunctions'
+import { getNameOfCategoryById } from '@/app/utils/usefulFunctions'
 
 
-export default function(){
+export default function () {
     const router = useRouter();
 
     const { subCategory } = useLocalSearchParams();
 
-     //  Category/4d49d696-39c6-4f26-abde-7dd21ae50563/page
-     const pathName = usePathname();
-        
-     //  [Category,  4d49d696-39c6-4f26-abde-7dd21ae50563, page]
-     const pathNameSplitted = pathName.split('/');
+    let subCats = categories.find(i => i.id === subCategory)?.subcats;
 
-    let subCats = categories.find(i=>i.id===subCategory)?.subcats;
+    var subCategories: Category[] = [];
 
-    var subCategories:Category[]=[];
-    
     subCategories = subCats !== undefined ? subCats : [];
 
-    let titleName = categories !== undefined ? getNameOfCategoryById(pathNameSplitted[pathNameSplitted.length-2], categories) : "";
-
-    return(
-        <View style={{flex : 1}}>
+    return (
+        <View style={{ flex: 1 }}>
             <TakeProductsLine router={router} categoryId={subCategory as string}></TakeProductsLine>
-            <CategoryList categories={subCategories} router={router} parentLink='./'></CategoryList>
-            </View>
-        )
+            <CategoryList categories={subCategories} router={router} parentLink="./"></CategoryList>
+        </View>
+    )
 }

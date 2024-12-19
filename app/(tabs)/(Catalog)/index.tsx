@@ -16,8 +16,8 @@ export default function () {
 
     return (
         <View>
-            <CategoryList categories={categories} parentLink='./categories' router={router}></CategoryList>
-            <Stack.Screen options={{title:"Catalog"}} ></Stack.Screen>
+            <CategoryList categories={categories} parentLink="./categories" router={router}></CategoryList>
+            <Stack.Screen options={{ title: "Catalog" }} ></Stack.Screen>
         </View>
     )
 }
