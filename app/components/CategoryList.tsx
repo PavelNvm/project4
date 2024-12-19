@@ -11,15 +11,29 @@ interface CategoryListProps {
     router: Router;
 }
 
+const CreateLink = (category: Category, parentLink: string): string => {
+    let result: string;
+    if (category.depth == 2) {
+        result = ("./products/[childlink]");
+    }
+    else {
+        result = (parentLink + "/[childlink]/page");
+    }
+    console.log(result);
+    return result;
+}
+
 const CategoryList: React.FC<CategoryListProps> = ({ categories, parentLink, router }) => {
-    
+
     const renderCategory = ({ item }: { item: Category }) => (
-        <TouchableOpacity onPress={() => { router.push( {
-            pathname: item.depth == 2 ? (`./products/[childlink]`) as string : (parentLink + '/[childlink]/page') as string,
-            params: { 
-              childlink: item.id,
-             },
-          }  )}} style={categoryStyles.category}>
+        <TouchableOpacity onPress={() => {
+            router.push({
+                pathname: CreateLink(item, parentLink),
+                params: {
+                    childlink: item.id,
+                },
+            })
+        }} style={categoryStyles.category}>
             <Text>{item.name}</Text>
         </TouchableOpacity>
     );
